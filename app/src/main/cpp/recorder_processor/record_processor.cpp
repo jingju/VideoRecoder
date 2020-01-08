@@ -80,6 +80,9 @@ int RecordProcessor::pushAudioBufferToQueue(short* samples, int size) {
 	int samplesCursor = 0;
 	int samplesCnt = size;
 	while (samplesCnt > 0) {
+		/**
+		 * 如果加上后的数据小于缓冲区
+		 */
 		if ((audioSamplesCursor + samplesCnt) < audioBufferSize) {
 			this->cpyToAudioSamples(samples + samplesCursor, samplesCnt);
 			audioSamplesCursor += samplesCnt;
